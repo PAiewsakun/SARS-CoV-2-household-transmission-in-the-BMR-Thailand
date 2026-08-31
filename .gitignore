@@ -1,22 +1,6 @@
-# R session files
+# R
 .Rhistory
 .RData
 .Ruserdata
 .R_outbreak-info-token
-.RDataTmp*
-
-# RStudio files
-.Rproj.user/
-*.Rproj
-
-# Windows system files
-Thumbs.db
-
-# Temporary files
-*.tmp
-*.temp
-*~
-
-# Output directory contents (keep .gitkeep)
-codes/out/*
-!codes/out/.gitkeep
+*.RDataTmp

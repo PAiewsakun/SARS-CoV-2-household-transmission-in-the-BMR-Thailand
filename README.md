@@ -1,17 +1,16 @@
 # Integrating clinical, demographic, epidemiological, and viral genome data to investigate SARS-CoV-2 household transmission in the Bangkok metropolitan region, Thailand, 2022-2024
 
-**Date:** 19/06/2026
+**Date:** 26/08/2026
 
 ## Description
-This repository contains the R scripts, processed datasets, and associated files used to generate the figures, tables, and statistical analyses presented in the manuscript:
-*"Integrating clinical, demographic, epidemiological, and viral genome data to investigate SARS-CoV-2 household transmission in the Bangkok metropolitan region, Thailand, 2022-2024"* (Aiewsakun et al., In Preparation).
+This repository contains the R scripts, input data, and generated outputs used to produce the figures, tables, and statistical analyses presented in the manuscript: *"Integrating clinical, demographic, epidemiological, and viral genome data to investigate SARS-CoV-2 household transmission in the Bangkok metropolitan region, Thailand, 2022-2024"* (Aiewsakun et al., In Preparation).
 
-## Repository Structure
+## Repository contents
 ```
 │   README.md
 │   LICENSE
 │
-└───codes
+└───code
     │   1 Table S4 Figure S1 Symptom level clustering analysis.R
     │   2 Figure 1 Overview of the study cohort.R
     │   3 Figure 2 Major lineage temporal dynamics.R
@@ -34,22 +33,44 @@ This repository contains the R scripts, processed datasets, and associated files
     │       Table S8.Root-to-tip regression analysis to detect outliers.xlsx
     │
     └───out
+            clustering_robustness.txt
+            clustering_score.txt
+            Figure 1.Overview of the study cohort.raw.png
+            Figure 1.Overview of the study cohort.raw.svg
+            Figure 2.Genome lineage diversity and temporal dynamics of SARS-CoV-2 sequences.raw.png
+            Figure 2.Genome lineage diversity and temporal dynamics of SARS-CoV-2 sequences.raw.svg
+            Figure 3.Phylogenetic analysis and sequence clustering.raw.png
+            Figure 3.Phylogenetic analysis and sequence clustering.raw.svg
+            Figure S1.Symptom profile clustering analysis.raw.png
+            Figure S1.Symptom profile clustering analysis.raw.svg
+            Figure S2.Symptom level vs ORF1ab Ct value.raw.png
+            Figure S2.Symptom level vs ORF1ab Ct value.raw.svg
+            Figure S3.Soft-pruned time-calibrated phylogeny and sequence clustering.raw.png
+            Figure S3.Soft-pruned time-calibrated phylogeny and sequence clustering.raw.svg
+            Figure S4.Distribution of SARS-CoV-2 sequences across families and sequence clusters.raw.png
+            Figure S4.Distribution of SARS-CoV-2 sequences across families and sequence clusters.raw.svg
+            Table 1.Overview of the study cohort at HH level by HH type.2 lvs.raw.docx
+            Table 2.Descriptive statistics and analyses of factors associated with endpoint positivity.raw.docx
+            Table 3.Descriptive statistics and analyses of factors associated with symptom level.raw.docx
+            Table S4.Severity clustering analysis results.raw.txt
+            Table S5.Overview of the study cohort at HH level by HH type.3 lvs.raw.docx
+            Table S9.Sequence cluster summary statistics.raw.txt
 ```
 
 ## Instructions for Use
-1. Download or clone this repository to your local machine.
-2. Set the R working directory to the `codes/` folder.
-3. Execute individual R scripts within the `codes/` directory to reproduce the corresponding analyses, figures, and tables.
+1. Download or clone this repository.
+2. Open R and set the working directory to `codes/`.
+3. Run the R scripts individually to generate the results.
    * All required input data is located in the `codes/data/` directory.
-   * All generated outputs (figures, tables, etc.) will be automatically saved to the `codes/out/` directory.
-   * `miscellaneous.R` contains global variables. It is sourced automatically by the analysis scripts and does not need to be executed independently.
+   * All generated outputs (figures, tables, etc.) will be saved to the `codes/out/` directory.
+   * `miscellaneous.R` contains global variables. It is sourced at the beginning of each of the main analysis scripts, and does not need to be executed independently.
    * Because some analyses involve stochastic procedures (e.g., simulation-based assignment of primary cases and clustering analyses), random seeds were set within the corresponding scripts to ensure reproducibility.
 
 
-## System Requirements & Dependencies
-The analyses were performed using **R version 4.4.2**. The following R packages are required to run the scripts. We recommend installing these specific package versions to ensure full reproducibility.
+## System requirements & dependencies
+The analyses were performed using **R version 4.4.2**. The following R packages are required to run the scripts. Package versions correspond to the environment used to generate the published results. We thus recommend installing these specific versions to ensure full reproducibility:
 
-### Data Import, Manipulation & Utilities
+### Data manipulation & utilities
 
 * `readxl` (v1.4.5)
 * `tidyverse` (v2.0.0)
@@ -58,19 +79,19 @@ The analyses were performed using **R version 4.4.2**. The following R packages 
 * `lubridate` (v1.9.5)
 * `fuzzyjoin` (v0.1.8)
 
-### Dimension Reduction & Clustering Analysis
+### Dimension reduction & clustering analysis
 
 * `umap` (v0.2.10.0)
 * `cluster` (v2.1.6)
 * `mclust` (v6.1.2)
 * `aricode` (v1.0.3)
 
-### Phylogenetics & Transmission Analysis
+### Phylogenetics & network analysis
 
 * `ape` (v5.8.1)
 * `igraph` (v2.2.2)
 
-### Statistical Analysis & Modelling
+### Statistics
 
 * `lme4` (v1.1.38)
 * `glmmTMB` (v1.1.14)
@@ -83,7 +104,7 @@ The analyses were performed using **R version 4.4.2**. The following R packages 
 * `gtsummary` (v2.5.0)
 * `rstatix` (v0.7.3)
 
-### Data Visualisation
+### Visualisation
 
 * `ggplot2` (v4.0.2)
 * `GGally` (v2.4.0)
@@ -99,11 +120,11 @@ The analyses were performed using **R version 4.4.2**. The following R packages 
 * `cowplot` (v1.2.0)
 * `patchwork` (v1.3.2)
 
-## Data Availability
-All sequencing data have been deposited with the National Center for Biotechnology Information (NCBI) under accession numbers PV890700-PV890817 and PX491811-PX491820. All other processed datasets required to reproduce the analyses are provided in the `codes/data/` directory.
+## Data availability
+All raw sequencing data are available from the National Center for Biotechnology Information (NCBI) under accession numbers PV890700-PV890817 and PX491811-PX491820. All other data required to reproduce the analyses are provided in the `codes/data/` directory.
 
 ## Citation
-If you use these scripts or find them helpful for your research, please cite our manuscript:
+If you use these scripts or find them helpful for your research, please cite:
 > Aiewsakun, P. et al. (In Preparation). Integrating clinical, demographic, epidemiological, and viral genome data to investigate SARS-CoV-2 household transmission in the Bangkok metropolitan region, Thailand, 2022-2024.
 
 ## License
